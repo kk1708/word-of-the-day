@@ -32,7 +32,10 @@ try:
 	#printing the definition of the word
 	d = soup.find("div", class_="otd-item-headword__pos")
 	definition = d.find_all("p")
-	print("\nDefinition of "+wod+": "+definition[1].text)
+	try:
+		print("\nDefinition of "+wod+": "+definition[2].text)
+	except:
+		print("\nDefinition of "+wod+": "+definition[1].text)
 except:
 	print("Couldn't get the definition of the word")
 
