@@ -13,20 +13,32 @@ soup=BeautifulSoup(source.text,"lxml")
 
 print("The Word of the Day\n")
 
-#printing the word of the day
-word = soup.find("div", class_="otd-item-headword__word")
-wod= word.h1.text
-print(wod.upper())
+try:
+	#printing the word of the day
+	word = soup.find("div", class_="otd-item-headword__word")
+	wod= word.h1.text
+	print(wod.upper())
+except:
+	print("Couldn't get the word")
 
-#printing the type of the word
-wordType = soup.find("span", class_="luna-pos")
-print(wordType.text)
+try:
+	#printing the type of the word
+	wordType = soup.find("span", class_="luna-pos")
+	print(wordType.text)
+except:
+	print("Couldn't get the part of the speech")
 
-#printing the definition of the word
-d = soup.find("div", class_="otd-item-headword__pos")
-definition = d.find_all("p")
-print("\nDefinition of "+wod+": "+definition[1].text)
+try:
+	#printing the definition of the word
+	d = soup.find("div", class_="otd-item-headword__pos")
+	definition = d.find_all("p")
+	print("\nDefinition of "+wod+": "+definition[1].text)
+except:
+	print("Couldn't get the definition of the word")
 
-#printing examples of the word
-example = soup.find("div", class_="wotd-item-example__content")
-print("\nExample of "+wod+" in a sentence: "+"'"+example.p.text+"'\n")
+try:
+	#printing examples of the word
+	example = soup.find("div", class_="wotd-item-example__content")
+	print("\nExample of "+wod+" in a sentence: "+"'"+example.p.text+"'\n")
+except:
+	print("Couldn't get the example of the word")
