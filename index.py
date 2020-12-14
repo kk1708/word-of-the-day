@@ -2,8 +2,14 @@ import requests
 from bs4 import BeautifulSoup
 
 #connecting to the website and creating the beautiful soup object
-source = requests.get("https://www.dictionary.com/e/word-of-the-day/", timeout=5).text
-soup=BeautifulSoup(source,"lxml")
+source = requests.get("https://www.dictionary.com/e/word-of-the-day/", timeout=5)
+
+#testing to see if connection can be established
+if source.status_code !=200:
+	print("Couldn't connect to the website")
+	exit()
+
+soup=BeautifulSoup(source.text,"lxml")
 
 print("The Word of the Day\n")
 
