@@ -23,4 +23,4 @@ print("\nDefinition of "+wod+": "+definition[1].text)
 
 #printing examples of the word
 example = soup.find("div", class_="wotd-item-example__content")
-print("\nExample of "+wod+" in a sentence: "+"'"+example.p.text+"'")
+print("\nExample of "+wod+" in a sentence: "+"'"+example.p.text+"'\n")
