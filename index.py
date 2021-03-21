@@ -9,7 +9,7 @@ if source.status_code !=200:
 	print("Couldn't connect to the website")
 	exit()
 
-soup=BeautifulSoup(source.text,"lxml")
+soup=BeautifulSoup(source.text,"html.parser")
 
 print("The Word of the Day\n")
 
